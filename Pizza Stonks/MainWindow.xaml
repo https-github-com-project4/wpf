@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Stonks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" FontSize="15" FontFamily="Showcard Gothic">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/pizzaa.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid Background="White" Opacity="0.75" Margin="20px">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="15"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" 
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="4" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="30" Text="Log in">
+            </TextBlock>
+            <TextBlock VerticalAlignment="Center" 
+                       Grid.Column="1" 
+                       Grid.Row="1" 
+                       Text="Username" 
+                       FontSize="15">
+                
+            </TextBlock>
+            
+            <TextBlock VerticalAlignment="Center"
+                       Grid.Column="1" 
+                       Grid.Row="3" 
+                       Text="Password">
+            </TextBlock>
+            <TextBox Text="huhuh"
+                     Grid.Row="1"
+                     Grid.Column="2"
+                     Background="Black" 
+                     
+                     TextAlignment="Left"
+                     
+                 
+                     
+                     
+                     >
+                      
+                
+            </TextBox>
+
+            <PasswordBox 
+                     Grid.Row="3"
+                     Grid.Column="2"
+                     Background="Black"
+                     Foreground="White"
+                     Password="password"  
+             ></PasswordBox>
+
+            <Button  Grid.Row="4"
+                     Grid.Column="2"
+                     Content="inloggen"
+                     Margin="5px"
+                    
+                ></Button>
+        </Grid>
+
         
+     
     </Grid>
 </Window>

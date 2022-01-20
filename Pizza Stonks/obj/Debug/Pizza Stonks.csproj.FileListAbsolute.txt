@@ -1,0 +1,15 @@
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\bin\Debug\Pizza Stonks.exe.config
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\bin\Debug\Pizza Stonks.exe
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\bin\Debug\Pizza Stonks.pdb
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.AssemblyReference.cache
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\MainWindow.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\App.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks_MarkupCompile.cache
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks_MarkupCompile.lref
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\MainWindow.baml
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.g.resources
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza_Stonks.Properties.Resources.resources
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.GenerateResource.cache
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.CoreCompileInputs.cache
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.exe
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.pdb
