@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Stonks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontSize="15" FontFamily="Showcard Gothic">
+        Title="MainWindow" Height="450" Width="800" FontSize="15" FontFamily="Constantia">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/images/pizzaa.jpg"></ImageBrush>
@@ -21,9 +21,9 @@
             
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition Height="15"></RowDefinition>
-                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -52,12 +52,8 @@
                      Grid.Row="1"
                      Grid.Column="2"
                      Background="Black" 
-                     
+                     Foreground="White"
                      TextAlignment="Left"
-                     
-                 
-                     
-                     
                      >
                       
                 
@@ -74,7 +70,7 @@
             <Button  Grid.Row="4"
                      Grid.Column="2"
                      Content="inloggen"
-                     Margin="5px"
+                     Margin="0px 5px 0px 0px"
                     
                 ></Button>
         </Grid>
