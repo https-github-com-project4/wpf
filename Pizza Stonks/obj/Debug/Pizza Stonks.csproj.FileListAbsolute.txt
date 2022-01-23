@@ -36,3 +36,5 @@ C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\bin\Debug\System.Runtim
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\login.g.cs
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\login.baml
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.CopyComplete
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Bezorger.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Bezorger.baml

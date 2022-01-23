@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pizza_Stonks.Models
 {
-    class DB
+   public class DB
     {
 
     }
