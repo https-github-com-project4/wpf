@@ -24,11 +24,7 @@ namespace Pizza_Stonks
     /// </summary>
     public partial class restaurant : Window, INotifyPropertyChanged
     {
-        public restaurant()
-        {
-            InitializeComponent();
-        }
-
+     private DB DB = new DB();
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,6 +34,26 @@ namespace Pizza_Stonks
         }
         #endregion
 
+
+       
+
+
+        private ObservableCollection<Order> order_id;
+
+        public ObservableCollection<Order> Order_id
+        {
+            get { return order_id; }
+            set { order_id = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<Order> pizza_id;
+
+        public ObservableCollection<Order> Pizza_id
+        {
+            get { return pizza_id; }
+            set { pizza_id = value; }
+        }
+
         private string order;
 
         public string Order
@@ -45,6 +61,27 @@ namespace Pizza_Stonks
             get { return order; }
             set { order = value; OnPropertyChanged(); }
         }
+        public restaurant()
+        {
+            InitializeComponent();
+            PopulateFormaten();
+            DataContext = this;
 
+        }
+
+        private void PopulateFormaten()
+        {
+            List<Order> dbOrderList = DB.GetOrder();
+            if (dbOrderList == null)
+            {
+                MessageBox.Show("Fout bij ophalen formaten, waarschuw service desk");
+                return;
+            }
+
+            foreach (Order formaat in dbOrderList)
+            {
+                Order_id.Add(formaat);
+            }
+        }
     }
 }

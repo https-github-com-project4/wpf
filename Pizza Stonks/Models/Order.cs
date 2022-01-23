@@ -16,5 +16,21 @@ namespace Pizza_Stonks.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
         #endregion
+        private int pizza_id;
+
+        public int Pizza_id
+        {
+            get { return pizza_id; }
+            set { pizza_id = value; }
+        }
+
+        private int order_id;
+
+        public int Order_id
+        {
+            get { return order_id; }
+            set { order_id = value; }
+        }
+
     }
 }
