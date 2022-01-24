@@ -14,8 +14,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
-
-
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
@@ -25,17 +23,15 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
 
-          
-
             <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                  ItemsSource="{Binding Pizza_id}"
-                  SelectedItem="{Binding Order_id}"
+                  ItemsSource="{Binding Orders}"
+                  SelectedItem="{Binding SelectedOrder}"
                   >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Pizza_id}" Width="50"/>
-                            <TextBlock Text="{Binding Order_id}" Width="100"/>
+                            <TextBlock Text="{Binding Orders}" Width="50"/>
+                            <TextBlock Text="{Binding Pizza}" Width="100"/>
                           
                         
                         </StackPanel>

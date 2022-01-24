@@ -28,14 +28,14 @@ namespace Pizza_Stonks.Models
 
                 while (reader.Read())
                 {
-                    Order formaat = new Order()
+                    Order Order = new Order()
                     {
-                        Pizza_id = (int)reader["pizza_id"],
+                        Pizza = (ulong)reader["pizza_id"],
                        
-                        Order_id = (int)reader["order_id"]
+                        Orders = (ulong)reader["order_id"]
                     };
 
-                    methodResultaat.Add(formaat);
+                    methodResultaat.Add(Order);
                 }
             }
             catch (Exception e)

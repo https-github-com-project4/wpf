@@ -14,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 namespace Pizza_Stonks
@@ -24,7 +23,7 @@ namespace Pizza_Stonks
     /// </summary>
     public partial class restaurant : Window, INotifyPropertyChanged
     {
-     private DB DB = new DB();
+        private DB DB = new DB();
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,52 +34,67 @@ namespace Pizza_Stonks
         #endregion
 
 
-       
 
+        private ObservableCollection<Order> orders = new ObservableCollection<Order>();
 
-        private ObservableCollection<Order> order_id;
-
-        public ObservableCollection<Order> Order_id
+        public ObservableCollection<Order> Orders
         {
-            get { return order_id; }
-            set { order_id = value; OnPropertyChanged(); }
+            get { return orders; }
+            set { orders = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<Order> pizza_id;
+        private ObservableCollection<Order> selectedOrder;
 
-        public ObservableCollection<Order> Pizza_id
+        public ObservableCollection<Order> SelectedOrder
         {
-            get { return pizza_id; }
-            set { pizza_id = value; }
+            get { return selectedOrder; }
+            set { selectedOrder = value; OnPropertyChanged(); }
         }
 
-        private string order;
 
-        public string Order
-        {
-            get { return order; }
-            set { order = value; OnPropertyChanged(); }
-        }
+        //private int order_id;
+
+        //public int Order_id
+        //{
+        //    get { return order_id; }
+        //    set { order_id = value;  }
+        //}
+
+        //private int pizza_id;
+
+        //public int Pizza_id
+        //{
+        //    get { return pizza_id; }
+        //    set { pizza_id = value;  }
+        //}
+
+        //private string order;
+
+        //public string Order
+        //{
+        //    get { return order; }
+        //    set { order = value;  }
+        //}
         public restaurant()
         {
             InitializeComponent();
-            PopulateFormaten();
+            PopulateOrder();
             DataContext = this;
 
         }
 
-        private void PopulateFormaten()
+        private void PopulateOrder()
         {
             List<Order> dbOrderList = DB.GetOrder();
             if (dbOrderList == null)
             {
-                MessageBox.Show("Fout bij ophalen formaten, waarschuw service desk");
+                MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
                 return;
             }
 
             foreach (Order formaat in dbOrderList)
             {
-                Order_id.Add(formaat);
+                Orders.Add(formaat);
             }
         }
     }
