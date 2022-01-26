@@ -52,47 +52,24 @@ namespace Pizza_Stonks
         }
 
 
-        //private int order_id;
-
-        //public int Order_id
-        //{
-        //    get { return order_id; }
-        //    set { order_id = value;  }
-        //}
-
-        //private int pizza_id;
-
-        //public int Pizza_id
-        //{
-        //    get { return pizza_id; }
-        //    set { pizza_id = value;  }
-        //}
-
-        //private string order;
-
-        //public string Order
-        //{
-        //    get { return order; }
-        //    set { order = value;  }
-        //}
         public restaurant()
         {
             InitializeComponent();
             PopulateOrder();
             DataContext = this;
-
         }
 
         private void PopulateOrder()
         {
+            List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
             List<Order> dbOrderList = DB.GetOrder();
-            if (dbOrderList == null)
+            if (dbOrderGegevens == null || dbOrderList == null)
             {
                 MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
                 return;
             }
 
-            foreach (Order formaat in dbOrderList)
+            foreach (Order formaat in dbOrderGegevens)
             {
                 Orders.Add(formaat);
             }

@@ -99,7 +99,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderMetNaam.cs" />
+    <Compile Include="Models\OrderGegevens.cs" />
+    <Compile Include="Models\PizzaGegevens.cs" />
+    <Compile Include="Models\Pizzas.cs" />
+    <Compile Include="pizzas.xaml.cs">
+      <DependentUpon>pizzas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="restaurant.xaml.cs">
       <DependentUpon>restaurant.xaml</DependentUpon>
     </Compile>
@@ -121,6 +126,10 @@
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
+    <Page Include="pizzas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="restaurant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

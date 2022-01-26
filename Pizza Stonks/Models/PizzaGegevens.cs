@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pizza_Stonks.Models
 {
-   public class OrderMetNaam
-    { 
-        public string OrderName { get; set; }
+   public class PizzaGegevens
+    {
+        public int Id { get; set; }
+        public string PizzaName { get; set; }
+        public double Price { get; set; }
     }
 }
