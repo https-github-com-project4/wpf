@@ -25,20 +25,47 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                  ItemsSource="{Binding Pizzas}"
-                  SelectedItem="{Binding SelectedOrder}"
+                  ItemsSource="{Binding Pizza}"
+                  SelectedItem="{Binding SelectedPizza}"
                   >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Orders}" Width="50"/>
-                            <TextBlock Text="{Binding Pizza}" Width="100"/>
+                            <TextBlock Text="{Binding Name}" Width="100"/>
+                            <TextBlock Text="{Binding Price}" Width="50"/>
 
 
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+
+            <ListView x:Name="lvIngredients" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+                  ItemsSource="{Binding Ingredients}"
+                  SelectedItem="{Binding SelectedIngredient}"
+                  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Id}" Width="50"/>
+                            <TextBlock>Ingredienten:</TextBlock>
+                            <Separator Width="5" Background="Transparent"/>
+                            <TextBlock Text="{Binding Name}" Width="100"/>
+                            <TextBlock>Prijs:</TextBlock>
+                            <Separator Width="5" Background="Transparent"/>
+                            <TextBlock Text="{Binding Price}" Width="50"/>
+                            <Separator Width="5" />
+                            <Button>toevoegen</Button>
+                            <Separator Width="5" />
+                            <Button>wijzig</Button>
+                            <Separator Width="5" />
+                        
+                        </StackPanel>
+                     
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView> <Button Grid.Column="2" Click="btDelete_Click">Verwijder</Button>
         </Grid>
 
     </Grid>

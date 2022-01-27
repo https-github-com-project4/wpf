@@ -27,10 +27,10 @@ namespace Pizza_Stonks.Models
                     Order Order = new Order()
                     {
                         Pizza = (ulong)reader["pizza_id"],
-                       
+
                         Orders = (ulong)reader["order_id"]
                     };
-                   
+
                     methodResultaat.Add(Order);
                 }
             }
@@ -59,11 +59,11 @@ namespace Pizza_Stonks.Models
                 conn.Open();
                 MySqlCommand sql = conn.CreateCommand();
                 sql.CommandText = @"
-select p.name as 'pizzaname', o.name as 'customerName', op.order_id
-from order_pizza op
-inner join pizza p on op.pizza_id = p.id
-inner JOIN `order` o on o.id = op.order_id
-;";
+                select p.name as 'pizzaname', o.name as 'customerName', op.order_id
+                from order_pizza op
+                inner join pizza p on op.pizza_id = p.id
+                inner JOIN `order` o on o.id = op.order_id
+                ;";
 
                 //sql.CommandText =
                 //      @"
@@ -93,7 +93,7 @@ inner JOIN `order` o on o.id = op.order_id
                         Id = (int)reader["id"],
                         PizzaName = (string)reader["name"],
                         Price = (double)reader["price"]
-                  
+
                     };
                     methodResultaat.Add(OrderGegevens);
                     methodResultaatPizza.Add(pizzaGegevens);
@@ -128,14 +128,14 @@ inner JOIN `order` o on o.id = op.order_id
                 MySqlCommand sql = conn.CreateCommand();
                 sql.CommandText = @"select * FROM pizza;";
 
-               
+
                 MySqlDataReader reader = sql.ExecuteReader();
 
                 while (reader.Read())
                 {
                     Pizzas Pizzas = new Pizzas()
                     {
-                        Id = (int)reader["id"],
+                        Id = (ulong)reader["id"],
 
                         Name = (string)reader["name"],
 
@@ -159,9 +159,76 @@ inner JOIN `order` o on o.id = op.order_id
             }
             return methodResultaat;
         }
+        
+        public List<Ingredients> GetIngredients()
+        {
+            List<Ingredients> methodResultaat = new List<Ingredients>();
+            try
+            {
+                conn.Open();
+                MySqlCommand sql = conn.CreateCommand();
+                sql.CommandText = @"SELECT * FROM ingredients;";
 
 
+                MySqlDataReader reader = sql.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Ingredients Ingredients = new Ingredients()
+                    {
+                        Id = (ulong)reader["id"],
+
+                        Name = (string)reader["name"],
+
+                        Price = (int)reader["price"]
+                    };
+
+                    methodResultaat.Add(Ingredients);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return methodResultaat;
+        }
 
 
+        public bool DeleteIngredient(string id)
+        {
+       
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "DELETE FROM ingredients WHERE id = @id;";
+                //DELETE FROM `personeel` WHERE `idpersoneel` = 5
+                command.Parameters.AddWithValue("@id", id);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+
+            catch (Exception e)
+            {
+                //Problem with the database
+                Console.Error.WriteLine(e.Message);
+              
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+
+        }
     }
 }

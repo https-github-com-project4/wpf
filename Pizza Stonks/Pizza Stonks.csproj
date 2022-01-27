@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderGegevens.cs" />
     <Compile Include="Models\PizzaGegevens.cs" />

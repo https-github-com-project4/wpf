@@ -41,3 +41,5 @@ C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Bezorger.baml
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\restaurant.g.cs
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\restaurant.baml
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.exe.config
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\pizzas.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\pizzas.baml
