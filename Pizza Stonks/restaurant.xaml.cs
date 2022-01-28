@@ -61,7 +61,7 @@ namespace Pizza_Stonks
 
         private void PopulateOrder()
         {
-            List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
+            List<Order> dbOrderGegevens = DB.GetOrder();
             List<Order> dbOrderList = DB.GetOrder();
             if (dbOrderGegevens == null || dbOrderList == null)
             {

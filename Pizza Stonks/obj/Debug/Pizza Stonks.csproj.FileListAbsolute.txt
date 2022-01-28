@@ -43,3 +43,7 @@ C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\restaurant.ba
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Pizza Stonks.exe.config
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\pizzas.g.cs
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\pizzas.baml
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\AddIngrededient.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\AddIngrededient.baml
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Window1.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\Window1.baml

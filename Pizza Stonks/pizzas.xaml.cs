@@ -74,14 +74,17 @@ namespace Pizza_Stonks
             DataContext = this;
             PopulatePizzas();
             PopulateIngredients();
+          
+
+
         }
+       
 
 
-        
 
 
-        #region Populate
-        private void PopulatePizzas()
+            #region Populate
+            private void PopulatePizzas()
         {
             List<Pizzas> dbPizzas = DB.Getpizzas();
             
@@ -106,13 +109,22 @@ namespace Pizza_Stonks
                 MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
                 return;
             }
-
+            Ingredients.Clear();
             foreach (Ingredients pizza in dbIngredients)
             {
+                
                  Ingredients.Add(pizza);
             }
         }
+        //private void Loadproperies()
+        //{
+        //    land = sConn.GetLanden();
+        //    People = sConn.GetAllPerson();
+            
 
+        //    //   getVakantieland = sConn.GetAllLanden();
+
+        //}
         #endregion
         #region Delete 
         private void btDelete_Click(object sender, RoutedEventArgs e)
@@ -122,18 +134,47 @@ namespace Pizza_Stonks
 
             if (DB.DeleteIngredient(iIngeredient.ToString()))
             {
+                
                 MessageBox.Show($"kutje {iIngeredient} verwijderd");
-             
-               
-               
             }
             else
             {
                 MessageBox.Show($"Verwijderen van {iIngeredient} mislukt");
             }
-            OnPropertyChanged();
+            PopulateIngredients();
+
 
         }
         #endregion
+
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddIngrededient add = new AddIngrededient();
+            add.ShowDialog();
+           
+        }
+
+        private void btUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (DB.UpdateIngredients((SelectedIngredient.Id, SelectedIngredient.Name, SelectedIngredient.Price)))
+            {
+                MessageBox.Show($"ingredient {SelectedIngredient.Id} aangepast");
+            }
+            else
+            {
+                MessageBox.Show($"Aanpassen van {SelectedIngredient.Id} mislukt");
+            }
+            this.Close();
+        }
+
+        private void tbIngredient_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
+
+        private void btchange_Click(object sender, RoutedEventArgs e)
+        {
+            lvOrder.ItemsSource = SelectedIngredient.Name;
+        }
     }
 }

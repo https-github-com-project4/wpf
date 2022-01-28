@@ -49,7 +49,33 @@ namespace Pizza_Stonks.Models
             return methodResultaat;
         }
 
+        public bool Insertingredient(string name, string price)
+        {
+          
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "INSERT INTO `ingredients`(`id`, `name`, `price`) VALUES (null, @name, @price); ";
 
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@price", price);
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception e)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+        }
+        
         public List<OrderGegevens> GetOrderGegevens()
         {
             List<OrderGegevens> methodResultaat = new List<OrderGegevens>();
@@ -114,10 +140,7 @@ namespace Pizza_Stonks.Models
             return methodResultaat;
         }
 
-
-
-
-
+      
 
         public List<Pizzas> Getpizzas()
         {
@@ -229,6 +252,40 @@ namespace Pizza_Stonks.Models
             }
             return succes;
 
+        }  
+        
+        
+        public bool UpdateIngredients((ulong id, string name, int price)p)
+        {
+
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "UPDATE `ingredients` SET `id`= @id,`name`=@name,`price`=@price WHERE `ingredients`. `id` =@id; ";
+                command.Parameters.AddWithValue("@id", p.id);
+                command.Parameters.AddWithValue("@name", p.name);
+                command.Parameters.AddWithValue("@price", p.price);
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception e)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
         }
+
+
+        //public bool UpdateIngredients((ulong Id, string Name, int Price) p)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
