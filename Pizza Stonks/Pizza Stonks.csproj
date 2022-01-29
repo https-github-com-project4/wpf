@@ -112,8 +112,8 @@
     <Compile Include="restaurant.xaml.cs">
       <DependentUpon>restaurant.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="UpdateIngredient.xaml.cs">
+      <DependentUpon>UpdateIngredient.xaml</DependentUpon>
     </Compile>
     <Page Include="AddIngrededient.xaml">
       <SubType>Designer</SubType>
@@ -145,7 +145,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="UpdateIngredient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

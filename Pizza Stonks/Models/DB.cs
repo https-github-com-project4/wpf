@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Windows.Controls;
 namespace Pizza_Stonks.Models
 {
     public class DB
@@ -255,7 +256,7 @@ namespace Pizza_Stonks.Models
         }  
         
         
-        public bool UpdateIngredients((ulong id, string name, int price)p)
+        public bool UpdateIngredients(string tbID, string name, string price)
         {
 
             bool succes = false;
@@ -264,9 +265,9 @@ namespace Pizza_Stonks.Models
                 conn.Open();
                 MySqlCommand command = conn.CreateCommand();
                 command.CommandText = "UPDATE `ingredients` SET `id`= @id,`name`=@name,`price`=@price WHERE `ingredients`. `id` =@id; ";
-                command.Parameters.AddWithValue("@id", p.id);
-                command.Parameters.AddWithValue("@name", p.name);
-                command.Parameters.AddWithValue("@price", p.price);
+                command.Parameters.AddWithValue("@id", tbID);
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@price", price);
 
                 int nrOfRowsAffected = command.ExecuteNonQuery();
                 succes = (nrOfRowsAffected != 0);

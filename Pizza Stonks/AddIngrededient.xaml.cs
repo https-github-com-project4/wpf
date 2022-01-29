@@ -24,6 +24,7 @@ namespace Pizza_Stonks
         public AddIngrededient()
         {
             InitializeComponent();
+           
         }
 
         private const string MessageBoxText = "Er is iets misgegaan!, Ga naar de helpdesk:(";

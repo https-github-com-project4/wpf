@@ -156,15 +156,20 @@ namespace Pizza_Stonks
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (DB.UpdateIngredients((SelectedIngredient.Id, SelectedIngredient.Name, SelectedIngredient.Price)))
+            try
             {
-                MessageBox.Show($"ingredient {SelectedIngredient.Id} aangepast");
+ UpdateIngredient updatepage = new UpdateIngredient(SelectedIngredient.Id, SelectedIngredient.Name, SelectedIngredient.Price);
+            updatepage.ShowDialog();
+
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show($"Aanpassen van {SelectedIngredient.Id} mislukt");
+                MessageBox.Show("Selecteer eerst een ingredient");
+                throw;
             }
-            this.Close();
+            PopulateIngredients();
+
+
         }
 
         private void tbIngredient_SourceUpdated(object sender, DataTransferEventArgs e)
