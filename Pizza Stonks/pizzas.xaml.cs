@@ -32,21 +32,21 @@ namespace Pizza_Stonks
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
         #endregion
-       
-        
+
+        #region properties
         private ObservableCollection<Pizzas> pizza = new ObservableCollection<Pizzas>();
 
         public ObservableCollection<Pizzas> Pizza
         {
             get { return pizza; }
-            set { pizza = value; OnPropertyChanged();}
+            set { pizza = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<Pizzas> selectedPizza;
+        private Pizzas selectedPizza;
 
-        public ObservableCollection<Pizzas> SelectedPizza
+        public Pizzas SelectedPizza
         {
-            get { return selectedPizza; }
+            get { return selectedPizza;}
             set { selectedPizza = value; OnPropertyChanged(); }
         }
 
@@ -63,31 +63,33 @@ namespace Pizza_Stonks
         public Ingredients SelectedIngredient
         {
             get { return selectedIngredient; }
-            set { selectedIngredient = value;
+            set
+            {
+                selectedIngredient = value;
                 OnPropertyChanged();
             }
         }
-
+        #endregion
         public pizzas()
         {
             InitializeComponent();
             DataContext = this;
             PopulatePizzas();
             PopulateIngredients();
-          
+
 
 
         }
-       
 
 
 
 
-            #region Populate
-            private void PopulatePizzas()
+
+        #region Populate
+        private void PopulatePizzas()
         {
             List<Pizzas> dbPizzas = DB.Getpizzas();
-            
+
             if (dbPizzas == null)
             {
                 MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
@@ -112,15 +114,15 @@ namespace Pizza_Stonks
             Ingredients.Clear();
             foreach (Ingredients pizza in dbIngredients)
             {
-                
-                 Ingredients.Add(pizza);
+
+                Ingredients.Add(pizza);
             }
         }
         //private void Loadproperies()
         //{
         //    land = sConn.GetLanden();
         //    People = sConn.GetAllPerson();
-            
+
 
         //    //   getVakantieland = sConn.GetAllLanden();
 
@@ -134,7 +136,7 @@ namespace Pizza_Stonks
 
             if (DB.DeleteIngredient(iIngeredient.ToString()))
             {
-                
+
                 MessageBox.Show($"kutje {iIngeredient} verwijderd");
             }
             else
@@ -151,15 +153,15 @@ namespace Pizza_Stonks
         {
             AddIngrededient add = new AddIngrededient();
             add.ShowDialog();
-           
+
         }
 
-        private void btUpdate_Click(object sender, RoutedEventArgs e)
+        private void btUpdateIngredient_Click(object sender, RoutedEventArgs e)
         {
             try
             {
- UpdateIngredient updatepage = new UpdateIngredient(SelectedIngredient.Id, SelectedIngredient.Name, SelectedIngredient.Price);
-            updatepage.ShowDialog();
+                UpdateIngredient updatepage = new UpdateIngredient(SelectedIngredient.Id, SelectedIngredient.Name, SelectedIngredient.Price);
+                updatepage.ShowDialog();
 
             }
             catch (Exception)
@@ -172,14 +174,36 @@ namespace Pizza_Stonks
 
         }
 
-        private void tbIngredient_SourceUpdated(object sender, DataTransferEventArgs e)
+        private void deletePizza_Click(object sender, RoutedEventArgs e)
         {
+
+            int Pizza = (int)SelectedPizza.Id;
+
+            if (DB.DeletePizza(Pizza.ToString()))
+            {
+
+                MessageBox.Show($"kutje {Pizza} verwijderd");
+            }
+            else
+            {
+                MessageBox.Show($"Verwijderen van {Pizza} mislukt. Er is een bestelling aan gekoppeld. dus het verwijderen van {SelectedPizza.Name} kan niet.");
+            }
+            PopulateIngredients();
+
+
 
         }
 
-        private void btchange_Click(object sender, RoutedEventArgs e)
+        private void btAddPizza_Click(object sender, RoutedEventArgs e)
         {
-            lvOrder.ItemsSource = SelectedIngredient.Name;
+            AddPizza add = new AddPizza(SelectedPizza.Id, SelectedPizza.Name, selectedPizza.Price);
+            add.ShowDialog();
+        }
+
+        private void btUpdatePizza_Click(object sender, RoutedEventArgs e)
+        {
+            UpdatePizza add = new UpdatePizza(SelectedPizza.Id, SelectedPizza.Name, selectedPizza.Price);
+            add.ShowDialog();
         }
     }
 }

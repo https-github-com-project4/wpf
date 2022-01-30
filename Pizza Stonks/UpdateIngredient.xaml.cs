@@ -46,7 +46,7 @@ namespace Pizza_Stonks
                 MessageBox.Show($"Aanpassen van  mislukt");
             }
 
-
+            this.Close();
 
         }
 

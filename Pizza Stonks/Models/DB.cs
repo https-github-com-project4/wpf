@@ -284,6 +284,89 @@ namespace Pizza_Stonks.Models
         }
 
 
+        public bool DeletePizza(string id)
+        {
+
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "DELETE FROM pizza WHERE id = @id;";
+                //DELETE FROM `personeel` WHERE `idpersoneel` = 5
+                command.Parameters.AddWithValue("@id", id);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+
+            catch (Exception e)
+            {
+                //Problem with the database
+                Console.Error.WriteLine(e.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+
+        }
+
+        public bool InsertPizza( string name, string price)
+        {
+
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "INSERT INTO `pizza`(`id`, `name`, `price`) VALUES (null, @name, @price); ";
+
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@price", price);
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception e)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+        }
+
+
+        public bool UpdatePizza(string tbID, string name, string price)
+        {
+
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "UPDATE `pizza` SET `id`= @id,`name`=@name,`price`=@price WHERE `pizza`. `id` =@id; ";
+                command.Parameters.AddWithValue("@id", tbID);
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@price", price);
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception e)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+        }
         //public bool UpdateIngredients((ulong Id, string Name, int Price) p)
         //{
         //    throw new NotImplementedException();

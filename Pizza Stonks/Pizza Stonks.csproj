@@ -101,6 +101,9 @@
     <Compile Include="AddIngrededient.xaml.cs">
       <DependentUpon>AddIngrededient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddPizza.xaml.cs">
+      <DependentUpon>AddPizza.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderGegevens.cs" />
@@ -115,7 +118,14 @@
     <Compile Include="UpdateIngredient.xaml.cs">
       <DependentUpon>UpdateIngredient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdatePizza.xaml.cs">
+      <DependentUpon>UpdatePizza.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddIngrededient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddPizza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateIngredient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdatePizza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

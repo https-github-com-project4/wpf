@@ -47,3 +47,7 @@ C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\AddIngrededie
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\AddIngrededient.baml
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\UpdateIngredient.g.cs
 C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\UpdateIngredient.baml
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\AddPizza.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\AddPizza.baml
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\UpdatePizza.g.cs
+C:\School\leerjaar 2\Projecten\Pizza Stonks\Pizza Stonks\obj\Debug\UpdatePizza.baml

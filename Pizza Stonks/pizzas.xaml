@@ -33,15 +33,17 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Name}" Width="100"/>
                             <TextBlock Text="{Binding Price}" Width="50"/>
-
-
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Vertical">
+                <Button  x:Name="deletePizza" Margin="0,5,0,5" Click="deletePizza_Click" >Verwijder de geselecteerde pizza</Button>
+                <Button x:Name="btAddPizza" Margin="0,5,0,5" Click="btAddPizza_Click"  >pizza toevoegen</Button>
+                <Button x:Name="btUpdatePizza" Margin="0,5,0,5" Click="btUpdatePizza_Click" >pizza wijzigen</Button>
+            </StackPanel>
 
-
-            <ListView x:Name="lvIngredients" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+            <ListView x:Name="lvIngredients" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
                   ItemsSource="{Binding Ingredients}"
                   SelectedItem="{Binding SelectedIngredient}"
                   >
@@ -55,19 +57,21 @@
                             <TextBlock>Prijs:</TextBlock>
                             <Separator Width="5" Background="Transparent"/>
                             <TextBlock x:Name="Price" Text="{Binding Price}" Width="50"/>
-                            <Separator Width="5" />
-                            <Button>toevoegen</Button>
-                            <Separator Width="5" />
-                            <Button x:Name="btUpdate" Click="btUpdate_Click">wijzig</Button>
-                            <Separator Width="5" />
+                           
+                         
 
                         </StackPanel>
 
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-            <Button x:Name="delete" Grid.Column="2" Click="btDelete_Click">Verwijder het geselecteeerde ingrediënt</Button>
-            <Button x:Name="btAdd" Grid.Column="2" Grid.Row="1" Click="btAdd_Click"  >Ingrediënt toevoegen</Button>
+               
+            </ListView> 
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
+            <Button  x:Name="delete" Margin="0,5,0,5" Click="btDelete_Click">Verwijder het geselecteeerde ingrediënt</Button>
+            <Button x:Name="btAdd" Margin="0,5,0,5" Click="btAdd_Click"  >Ingrediënt toevoegen</Button>
+            <Button x:Name="btUpdate" Margin="0,5,0,5" Click="btUpdateIngredient_Click">wijzig</Button>
+            </StackPanel>
+            
 
 
 
@@ -82,10 +86,9 @@
                 <TextBox x:Name="tbPrice" ></TextBox>
 
 
-                <Button x:Name="btchange"  Grid.RowSpan="2" Margin="20" Click="btchange_Click">wijzig</Button>
+              
             </StackPanel>
 
-            <ListView Grid.Row="2"  x:Name="lvOrder"  DisplayMemberPath="SelectedIngredient" />
         </Grid>
 
     </Grid>
