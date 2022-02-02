@@ -33,7 +33,17 @@ namespace Pizza_Stonks
         }
         #endregion
 
+         private ObservableCollection<Pizzas> pizza = new ObservableCollection<Pizzas>();
 
+        public ObservableCollection<Pizzas> Pizza
+        {
+            get { return pizza; }
+            set
+            {
+                pizza = value; OnPropertyChanged();
+
+            }
+        }
 
         private ObservableCollection<Order> orders = new ObservableCollection<Order>();
 
@@ -58,18 +68,32 @@ namespace Pizza_Stonks
             PopulateOrder();
             DataContext = this;
         }
+        //private void PopulateBestelling()
+        //{
+        //    List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
+      
+        //    if (dbOrderGegevens == null)
+        //    {
+        //        MessageBox.Show("Fout bij ophalen bestelling, waarschuw service desk");
+        //        return;
+        //    }
 
+        //    foreach (OrderGegevens pizza in dbOrderGegevens)
+        //    {
+        //        Pizza.Add(pizza);
+        //    }
+        //}
         private void PopulateOrder()
         {
-            List<Order> dbOrderGegevens = DB.GetOrder();
+            //List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
             List<Order> dbOrderList = DB.GetOrder();
-            if (dbOrderGegevens == null || dbOrderList == null)
+            if (dbOrderList == null)
             {
                 MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
                 return;
             }
 
-            foreach (Order formaat in dbOrderGegevens)
+            foreach (Order formaat in dbOrderList)
             {
                 Orders.Add(formaat);
             }

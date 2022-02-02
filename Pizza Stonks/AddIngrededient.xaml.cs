@@ -19,9 +19,9 @@ namespace Pizza_Stonks
     /// <summary>
     /// Interaction logic for AddIngrededient.xaml
     /// </summary>
-    public partial class AddIngrededient : Window
+    public partial class Ingrededient : Window
     {
-        public AddIngrededient()
+        public Ingrededient()
         {
             InitializeComponent();
            

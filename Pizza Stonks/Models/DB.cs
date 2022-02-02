@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Windows.Controls;
 namespace Pizza_Stonks.Models
 {
@@ -52,7 +53,7 @@ namespace Pizza_Stonks.Models
 
         public bool Insertingredient(string name, string price)
         {
-          
+
             bool succes = false;
             try
             {
@@ -76,9 +77,11 @@ namespace Pizza_Stonks.Models
             }
             return succes;
         }
-        
+
         public List<OrderGegevens> GetOrderGegevens()
         {
+            List<Order> methodResultaatOrder = new List<Order>();
+
             List<OrderGegevens> methodResultaat = new List<OrderGegevens>();
             List<PizzaGegevens> methodResultaatPizza = new List<PizzaGegevens>();
             try
@@ -87,7 +90,7 @@ namespace Pizza_Stonks.Models
                 MySqlCommand sql = conn.CreateCommand();
                 sql.CommandText = @"
                 select p.name as 'pizzaname', o.name as 'customerName', op.order_id
-                from order_pizza op
+                from order_pizza op 
                 inner join pizza p on op.pizza_id = p.id
                 inner JOIN `order` o on o.id = op.order_id
                 ;";
@@ -100,30 +103,32 @@ namespace Pizza_Stonks.Models
 
                 while (reader.Read())
                 {
-                    //Order Order = new Order()
-                    //{
-                    //    Pizza = (ulong)reader["pizza_id"],
-
-                    //    Orders = (ulong)reader["order_id"]
-                    //};
+                    Order Order = new Order()
+                    {  
+                        
+                        Orders = (ulong)reader["order_id"]
+                     
+                    };
                     OrderGegevens OrderGegevens = new OrderGegevens()
                     {
-                        Id = (int)reader["id"],
+                        //Id = (int)reader["id"],
                         Name = (string)reader["customerName"],
-                        Email = (string)reader["emailadres"],
-                        Phone = (int)reader["phone"],
-                        Address = (string)reader["address"],
-                        Zipcode = (string)reader["zipcode"]
+                        //Email = (string)reader["emailadres"],
+                        //Phone = (int)reader["phone"],
+                        //Address = (string)reader["address"],
+                        //Zipcode = (string)reader["zipcode"]
                     };
                     PizzaGegevens pizzaGegevens = new PizzaGegevens()
                     {
-                        Id = (int)reader["id"],
-                        PizzaName = (string)reader["name"],
-                        Price = (double)reader["price"]
+                        //Id = (int)reader["id"],
+                        PizzaName = (string)reader["pizzaname"],
+                        //Price = (double)reader["price"]
 
                     };
                     methodResultaat.Add(OrderGegevens);
+                    methodResultaatOrder.Add(Order);
                     methodResultaatPizza.Add(pizzaGegevens);
+                  //  var bestelling = methodResultaat , methodResultaatOrder , methodResultaatPizza;
                 }
             }
             catch (Exception e)
@@ -141,7 +146,7 @@ namespace Pizza_Stonks.Models
             return methodResultaat;
         }
 
-      
+
 
         public List<Pizzas> Getpizzas()
         {
@@ -183,7 +188,7 @@ namespace Pizza_Stonks.Models
             }
             return methodResultaat;
         }
-        
+
         public List<Ingredients> GetIngredients()
         {
             List<Ingredients> methodResultaat = new List<Ingredients>();
@@ -225,10 +230,37 @@ namespace Pizza_Stonks.Models
             return methodResultaat;
         }
 
+        internal bool GetMenuById(string menuId)
+        {
+            bool succes = false;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "select * FROM pizza where id = @id;";
+                command.Parameters.AddWithValue("@id", menuId);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+
+            catch (Exception e)
+            {
+                //Problem with the database
+                Console.Error.WriteLine(e.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+
+        }
 
         public bool DeleteIngredient(string id)
         {
-       
+
             bool succes = false;
             try
             {
@@ -245,7 +277,7 @@ namespace Pizza_Stonks.Models
             {
                 //Problem with the database
                 Console.Error.WriteLine(e.Message);
-              
+
             }
             finally
             {
@@ -253,9 +285,9 @@ namespace Pizza_Stonks.Models
             }
             return succes;
 
-        }  
-        
-        
+        }
+
+
         public bool UpdateIngredients(string tbID, string name, string price)
         {
 
@@ -313,7 +345,7 @@ namespace Pizza_Stonks.Models
 
         }
 
-        public bool InsertPizza( string name, string price)
+        public bool InsertPizza(string name, string price)
         {
 
             bool succes = false;
@@ -367,9 +399,16 @@ namespace Pizza_Stonks.Models
             }
             return succes;
         }
-        //public bool UpdateIngredients((ulong Id, string Name, int Price) p)
-        //{
-        //    throw new NotImplementedException();
-        //}
+
+
+
+
+
+        //  return succes.Rows[0].ItemArray[1].ToString();
     }
+
+    //public bool UpdateIngredients((ulong Id, string Name, int Price) p)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }
