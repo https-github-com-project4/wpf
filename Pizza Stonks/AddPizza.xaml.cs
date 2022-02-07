@@ -21,7 +21,7 @@ namespace Pizza_Stonks
     public partial class AddPizza : Window
     {
         private DB DB = new DB();
-        public AddPizza(ulong id, string name, double price)
+        public AddPizza()
         {
             InitializeComponent();
             

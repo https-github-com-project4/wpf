@@ -110,7 +110,11 @@
     <Compile Include="Ingredient.xaml.cs">
       <DependentUpon>Ingredient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IngredientPizza.xaml.cs">
+      <DependentUpon>IngredientPizza.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ingredients.cs" />
+    <Compile Include="Models\Ingredient_Pizza.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderGegevens.cs" />
     <Compile Include="Models\PizzaGegevens.cs" />
@@ -144,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ingredient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IngredientPizza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -139,7 +139,7 @@ namespace Pizza_Stonks
 
         private void btAddPizza_Click(object sender, RoutedEventArgs e)
         {
-            AddPizza add = new AddPizza(SelectedPizza.Id, SelectedPizza.Name, selectedPizza.Price);
+            AddPizza add = new AddPizza();
             add.ShowDialog();
         }
 
@@ -153,6 +153,13 @@ namespace Pizza_Stonks
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lvpizza.ItemsSource = DB.Getpizzas();
+        }
+
+        private void btAddIngr_Click(object sender, RoutedEventArgs e)
+        {
+            IngredientPizza add = new IngredientPizza(SelectedPizza);
+            
+            add.ShowDialog();
         }
 
         //private void lvpizza_SelectionChanged(object sender, SelectionChangedEventArgs e)

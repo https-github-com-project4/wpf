@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 using System.Windows.Controls;
@@ -104,10 +105,10 @@ namespace Pizza_Stonks.Models
                 while (reader.Read())
                 {
                     Order Order = new Order()
-                    {  
-                        
+                    {
+
                         Orders = (ulong)reader["order_id"]
-                     
+
                     };
                     OrderGegevens OrderGegevens = new OrderGegevens()
                     {
@@ -128,7 +129,7 @@ namespace Pizza_Stonks.Models
                     methodResultaat.Add(OrderGegevens);
                     methodResultaatOrder.Add(Order);
                     methodResultaatPizza.Add(pizzaGegevens);
-                  //  var bestelling = methodResultaat , methodResultaatOrder , methodResultaatPizza;
+                    //  var bestelling = methodResultaat , methodResultaatOrder , methodResultaatPizza;
                 }
             }
             catch (Exception e)
@@ -230,6 +231,48 @@ namespace Pizza_Stonks.Models
             return methodResultaat;
         }
 
+        public List<Ingredients> GetIngredientsInPizza(ulong pizza_id)
+        {
+            List<Ingredients> methodResultaat = new List<Ingredients>();
+            try
+            {
+                conn.Open();
+                MySqlCommand sql = conn.CreateCommand();
+                sql.CommandText = @"SELECT ingredients.name, ingredients.id, ingredients.price  FROM ingredient_pizza INNER JOIN ingredients ON ingredient_pizza.ingredient_id = ingredients.id WHERE ingredient_pizza.pizza_id = @pizza_id;";
+             
+                sql.Parameters.AddWithValue("@pizza_id", pizza_id);
+
+                MySqlDataReader reader = sql.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Ingredients Ingredients = new Ingredients()
+                    {
+                        Id = (ulong)reader["id"],
+
+                        Name = (string)reader["name"],
+
+                        Price = (int)reader["price"]
+                    };
+
+                    methodResultaat.Add(Ingredients);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return methodResultaat;
+        }
+
         internal bool GetMenuById(string menuId)
         {
             bool succes = false;
@@ -287,7 +330,6 @@ namespace Pizza_Stonks.Models
 
         }
 
-
         public bool UpdateIngredients(string tbID, string name, string price)
         {
 
@@ -314,7 +356,6 @@ namespace Pizza_Stonks.Models
             }
             return succes;
         }
-
 
         public bool DeletePizza(string id)
         {
@@ -372,7 +413,6 @@ namespace Pizza_Stonks.Models
             return succes;
         }
 
-
         public bool UpdatePizza(string tbID, string name, string price)
         {
 
@@ -400,15 +440,73 @@ namespace Pizza_Stonks.Models
             return succes;
         }
 
+        public bool AddIngr_Pizza(ulong idPizza, ulong idIngr)
+        {
+
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "INSERT INTO ingredient_pizza (pizza_id, ingredient_id) VALUES (@idpizza, @idIngr);";
+                command.Parameters.AddWithValue("@idpizza", idPizza);
+                command.Parameters.AddWithValue("@idIngr", idIngr);
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+        }
 
 
+        //public List<Ingredient_Pizza> GetAllIngrOnPizza(int id)
+        //{
+        //    List<Ingredient_Pizza> methodResultaat = new List<Ingredient_Pizza>();
+        //    try
+        //    {
+        //        conn.Open();
+        //        MySqlCommand sql = conn.CreateCommand();
+        //        // sql.CommandText = "select * FROM order_pizza;";
+        //        sql.CommandText = @"SELECT order_pizzaz.*, vakantielanden.*
+        //        FROM favouritelanden
+        //        INNER JOIN vakantielanden ON favouritelanden.vakantielanden_idvakantielanden = ``.idvakantielanden
+        //        WHERE favouritelanden.personeel_idpersoneel = @id ORDER BY vakantieland ASC";
 
+        //        MySqlDataReader reader = sql.ExecuteReader();
 
-        //  return succes.Rows[0].ItemArray[1].ToString();
+        //        while (reader.Read())
+        //        {
+        //            Ingredient_Pizza Order = new Ingredient_Pizza()
+        //            {
+        //                Pizza_id = (ulong)reader["pizza_id"],
+
+        //                Ingredient_id = (ulong)reader["ingredient_id"]
+        //            };
+
+        //            methodResultaat.Add(Order);
+        //        }
+        //        return methodResultaat;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.Error.WriteLine(e.Message);
+
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
     }
 
-    //public bool UpdateIngredients((ulong Id, string Name, int Price) p)
-    //{
-    //    throw new NotImplementedException();
-    //}
 }
