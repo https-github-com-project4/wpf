@@ -45,17 +45,17 @@ namespace Pizza_Stonks
             }
         }
 
-        private ObservableCollection<Order> orders = new ObservableCollection<Order>();
+        private ObservableCollection<OrderGegevens> orders = new ObservableCollection<OrderGegevens>();
 
-        public ObservableCollection<Order> Orders
+        public ObservableCollection<OrderGegevens> Orders
         {
             get { return orders; }
             set { orders = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<Order> selectedOrder;
+        private OrderGegevens selectedOrder;
 
-        public ObservableCollection<Order> SelectedOrder
+        public OrderGegevens SelectedOrder
         {
             get { return selectedOrder; }
             set { selectedOrder = value; OnPropertyChanged(); }
@@ -86,14 +86,31 @@ namespace Pizza_Stonks
         private void PopulateOrder()
         {
             //List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
-            List<Order> dbOrderList = DB.GetOrder();
+            List<OrderGegevens> dbOrderList = DB.GetOrderGegevens();
             if (dbOrderList == null)
             {
                 MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
                 return;
             }
 
-            foreach (Order formaat in dbOrderList)
+            foreach (OrderGegevens formaat in dbOrderList)
+            {
+                Orders.Add(formaat);
+            }
+        }
+
+
+        private void PopulateOrderById()
+        {
+            //List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
+            List<Pizzas> dbOrderList = DB.GetpizzasByOrderId(SelectedOrder.Id);
+            if (dbOrderList == null)
+            {
+                MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
+                return;
+            }
+
+            foreach (OrderGegevens formaat in dbOrderList)
             {
                 Orders.Add(formaat);
             }

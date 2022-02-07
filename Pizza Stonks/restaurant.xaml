@@ -30,10 +30,27 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Orders}" Width="50"/>
-                            <TextBlock Text="{Binding Pizza}" Width="100"/>
+                            <TextBlock Text="{Binding Id}" Width="50"/>
+                            <TextBlock Text="{Binding Name}" Width="100"/>
                           
                         
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+            <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+                  ItemsSource="{Binding Orders}"
+                  SelectedItem="{Binding SelectedOrder}"
+                  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Id}" Width="50"/>
+                            <TextBlock Text="{Binding Name}" Width="100"/>
+
+
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

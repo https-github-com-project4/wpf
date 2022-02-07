@@ -135,8 +135,20 @@ namespace Pizza_Stonks
             }
             PopulateIngredients();
         }
-        
 
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
 
+            ulong ingr = SelectedIngredient.Id;
+            if (DB.Delete_Ingr_Pizza(SelectedIngredient.Id))
+            {
+                MessageBox.Show($"Land  verwijderd");
+            
+            }
+            else
+            {
+                MessageBox.Show($"Verwijderen van  mislukt");
+            }
+        }
     }
 }

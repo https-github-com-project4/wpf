@@ -57,7 +57,8 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                        
-                            <TextBlock   Text="{Binding Name}" Width="100"/>
+                            <TextBlock x:Name="name"  Text="{Binding Name}" Width="100"/>
+                            <Button x:Name="btDelete" Click="btDelete_Click">verwijder</Button>
                             
 
                         </StackPanel>
@@ -67,6 +68,7 @@
 
             </ListView>
             <Button Grid.Column="2" Click="Button_Click">toevoegen</Button>
+        
         </Grid>
     </Grid>
 </Window>

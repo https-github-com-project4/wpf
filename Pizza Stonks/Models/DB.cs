@@ -79,77 +79,9 @@ namespace Pizza_Stonks.Models
             return succes;
         }
 
-        public List<OrderGegevens> GetOrderGegevens()
-        {
-            List<Order> methodResultaatOrder = new List<Order>();
+      
 
-            List<OrderGegevens> methodResultaat = new List<OrderGegevens>();
-            List<PizzaGegevens> methodResultaatPizza = new List<PizzaGegevens>();
-            try
-            {
-                conn.Open();
-                MySqlCommand sql = conn.CreateCommand();
-                sql.CommandText = @"
-                select p.name as 'pizzaname', o.name as 'customerName', op.order_id
-                from order_pizza op 
-                inner join pizza p on op.pizza_id = p.id
-                inner JOIN `order` o on o.id = op.order_id
-                ;";
-
-                //sql.CommandText =
-                //      @"
-                //select* FROM order_pizza; 
-                //      ";
-                MySqlDataReader reader = sql.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    Order Order = new Order()
-                    {
-
-                        Orders = (ulong)reader["order_id"]
-
-                    };
-                    OrderGegevens OrderGegevens = new OrderGegevens()
-                    {
-                        //Id = (int)reader["id"],
-                        Name = (string)reader["customerName"],
-                        //Email = (string)reader["emailadres"],
-                        //Phone = (int)reader["phone"],
-                        //Address = (string)reader["address"],
-                        //Zipcode = (string)reader["zipcode"]
-                    };
-                    PizzaGegevens pizzaGegevens = new PizzaGegevens()
-                    {
-                        //Id = (int)reader["id"],
-                        PizzaName = (string)reader["pizzaname"],
-                        //Price = (double)reader["price"]
-
-                    };
-                    methodResultaat.Add(OrderGegevens);
-                    methodResultaatOrder.Add(Order);
-                    methodResultaatPizza.Add(pizzaGegevens);
-                    //  var bestelling = methodResultaat , methodResultaatOrder , methodResultaatPizza;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.Error.WriteLine(e.Message);
-                return null;
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-            return methodResultaat;
-        }
-
-
-
-        public List<Pizzas> Getpizzas()
+  public List<Pizzas> Getpizzas()
         {
             List<Pizzas> methodResultaat = new List<Pizzas>();
             try
@@ -189,6 +121,109 @@ namespace Pizza_Stonks.Models
             }
             return methodResultaat;
         }
+
+    public List<OrderGegevens> GetOrderGegevens()
+        {
+            List<OrderGegevens> methodResultaat = new List<OrderGegevens>();
+            try
+            {
+                //select p.name as 'pizzaname', o.name as 'customerName', op.order_id
+                //    from order_pizza op 
+                //    inner join pizza p on op.pizza_id = p.id
+                //    inner JOIN `order` o on o.id = op.order_id
+                conn.Open();
+                MySqlCommand sql = conn.CreateCommand();
+                sql.CommandText = @"
+                        SELECT o.id, o.name, s.name as 'statusname'
+                        FROM `order` o
+                        INNER JOIN states s ON s.id = o.status_id
+
+                ;";
+
+                MySqlDataReader reader = sql.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    OrderGegevens OrderGegevens = new OrderGegevens()
+                    {
+                        Id = (ulong)reader["id"],
+                        Name = (string)reader["name"],
+                        StatusName = (string)reader["statusname"],
+                        //Name = (string)reader["name"],
+                        //Email = (string)reader["emailadres"],
+                        //Phone = (int)reader["phone"],
+                        //Address = (string)reader["address"],
+                        //Zipcode = (string)reader["zipcode"]
+                    };
+                    methodResultaat.Add(OrderGegevens);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return methodResultaat;
+        }    
+
+        public List<Pizzas> GetpizzasByOrderId(ulong orderiD)
+        {
+            List<Pizzas> methodResultaat = new List<Pizzas>();
+            try
+            {
+                conn.Open();
+                MySqlCommand sql = conn.CreateCommand();
+                sql.CommandText = @"
+                    SELECT orp.order_id, orp.qty, orp.size, p.name, p.price
+                    FROM `order_pizza` orp
+                    INNER JOIN pizza p ON p.id = orp.pizza_id
+                    WHERE order_id = @orderiD  
+                    ";
+
+
+                MySqlDataReader reader = sql.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Pizzas Orders = new Pizzas()
+                    {
+                        Orders = (ulong)reader["order_id"],
+
+                        Qty = (int)reader["qty"],
+
+                        Size = (int)reader["size"],
+
+                        Name = (string)reader["name"],
+
+                        Price = (double)reader["price"],
+
+                    };
+
+                    methodResultaat.Add(Orders);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            return methodResultaat;
+        }
+
 
         public List<Ingredients> GetIngredients()
         {
@@ -239,7 +274,7 @@ namespace Pizza_Stonks.Models
                 conn.Open();
                 MySqlCommand sql = conn.CreateCommand();
                 sql.CommandText = @"SELECT ingredients.name, ingredients.id, ingredients.price  FROM ingredient_pizza INNER JOIN ingredients ON ingredient_pizza.ingredient_id = ingredients.id WHERE ingredient_pizza.pizza_id = @pizza_id;";
-             
+
                 sql.Parameters.AddWithValue("@pizza_id", pizza_id);
 
                 MySqlDataReader reader = sql.ExecuteReader();
@@ -468,6 +503,33 @@ namespace Pizza_Stonks.Models
             return succes;
         }
 
+        public bool Delete_Ingr_Pizza(ulong idIngr)
+        {
+
+            bool succes = false;
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "DELETE FROM ingredient_pizza WHERE (pizza_id, ingredient_id) = (@idIngr);";
+                //command.Parameters.AddWithValue("@idPizza", idPizza);
+                command.Parameters.AddWithValue("@idIngr", idIngr);
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+        }
 
         //public List<Ingredient_Pizza> GetAllIngrOnPizza(int id)
         //{

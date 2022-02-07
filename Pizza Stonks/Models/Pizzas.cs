@@ -9,31 +9,11 @@ using System.Collections.ObjectModel;
 
 namespace Pizza_Stonks.Models
 {
-   public class Pizzas
+   public class Pizzas : Order
     {
         public ulong Id { get; set; }
         public string Name { get; set; }
         public double Price  { get; set; }
-
-        private ObservableCollection<Ingredients>  ingredients;
-
-        public ObservableCollection<Ingredients> Ingredients
-        {
-            get { return ingredients; }
-            set { ingredients = value; }
-        }
-
-        private Ingredients ingredientpizza;
-
-        public Ingredients Ingredientpizza
-        {
-            get { return ingredientpizza; }
-            set { ingredientpizza = value; }
-        }
-
-        //private List<Ingredients> ingredient() {
-
-        //}
     }
 
 }

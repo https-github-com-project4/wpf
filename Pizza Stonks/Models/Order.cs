@@ -7,15 +7,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 namespace Pizza_Stonks.Models
 {
-   public class Order: INotifyPropertyChanged
+   public class Order : OrderGegevens
     {
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-        #endregion
         private ulong pizza;
 
         public ulong Pizza
@@ -31,6 +24,6 @@ namespace Pizza_Stonks.Models
             get { return orders; }
             set { orders = value; }
         }
-
+        public int Size { get; set; }
     }
 }
