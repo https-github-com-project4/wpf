@@ -25,13 +25,15 @@
 
             <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                   ItemsSource="{Binding Orders}"
-                  SelectedItem="{Binding SelectedOrder}"
+                  SelectedItem="{Binding SelectedOrder}" SelectionChanged="ListView_SelectionChanged"
                   >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Id}" Width="50"/>
                             <TextBlock Text="{Binding Name}" Width="100"/>
+                            <TextBlock Text="{Binding StatusName}" Width="100"/>
+                            
                           
                         
                         </StackPanel>
@@ -41,14 +43,18 @@
             
             
             <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
-                  ItemsSource="{Binding Orders}"
-                  SelectedItem="{Binding SelectedOrder}"
+                  ItemsSource="{Binding Orderpizzza}"
+                 
                   >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Id}" Width="50"/>
-                            <TextBlock Text="{Binding Name}" Width="100"/>
+
+                            <TextBlock Text="{Binding Name_Pizza}" Width="100"/>
+                            <TextBlock Text="Stuks" />
+                            <Separator Width="5" Background="Transparent"></Separator>
+                            <TextBlock Text="{Binding Qty}" Width="100"/>
+                           
 
 
                         </StackPanel>

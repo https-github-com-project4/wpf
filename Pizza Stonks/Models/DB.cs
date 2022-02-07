@@ -173,9 +173,9 @@ namespace Pizza_Stonks.Models
             return methodResultaat;
         }    
 
-        public List<Pizzas> GetpizzasByOrderId(ulong orderiD)
+        public List<Order_Pizza> GetpizzasByOrderId(ulong orderiD)
         {
-            List<Pizzas> methodResultaat = new List<Pizzas>();
+            List<Order_Pizza> methodResultaat = new List<Order_Pizza>();
             try
             {
                 conn.Open();
@@ -186,24 +186,24 @@ namespace Pizza_Stonks.Models
                     INNER JOIN pizza p ON p.id = orp.pizza_id
                     WHERE order_id = @orderiD  
                     ";
+                sql.Parameters.AddWithValue("@orderiD", orderiD);
 
 
                 MySqlDataReader reader = sql.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    Pizzas Orders = new Pizzas()
+                    Order_Pizza Orders = new Order_Pizza()
                     {
-                        Orders = (ulong)reader["order_id"],
+                        Id_Order = (ulong)reader["order_id"],
 
                         Qty = (int)reader["qty"],
 
                         Size = (int)reader["size"],
 
-                        Name = (string)reader["name"],
+                        Name_Pizza = (string)reader["name"],
 
-                        Price = (double)reader["price"],
-
+                        Price__Pizza = (double)reader["price"],
                     };
 
                     methodResultaat.Add(Orders);

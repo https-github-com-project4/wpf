@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\School\leerjaar 2\Projecten\error\Pizza Stonks\Pizza Stonks\obj\Debug\
+C:\School\leerjaar 2\Projecten\error\Pizza Stonks\Pizza Stonks\obj\Release\
 Pizza_Stonks
 none
 false
-DEBUG;TRACE
+TRACE
 C:\School\leerjaar 2\Projecten\error\Pizza Stonks\Pizza Stonks\App.xaml
 11-1431575662
 
-25853090403
+241695449770
 322107802785
 AddIngrededient.xaml;AddPizza.xaml;Bezorger.xaml;Home.xaml;Ingredient.xaml;IngredientPizza.xaml;login.xaml;pizzas.xaml;restaurant.xaml;UpdateIngredient.xaml;UpdatePizza.xaml;
 
