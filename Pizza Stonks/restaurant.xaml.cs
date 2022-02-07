@@ -50,7 +50,9 @@ namespace Pizza_Stonks
         public ObservableCollection<OrderGegevens> Orders
         {
             get { return orders; }
-            set { orders = value; OnPropertyChanged(); }
+            set { orders = value; OnPropertyChanged(); 
+            
+            }
         }
 
         private OrderGegevens selectedOrder;
@@ -61,11 +63,28 @@ namespace Pizza_Stonks
             set { selectedOrder = value; OnPropertyChanged(); }
         }
 
+        private ObservableCollection<Order_Pizza> orderpizzza = new ObservableCollection<Order_Pizza>();
+
+        public ObservableCollection<Order_Pizza> Orderpizzza
+        {
+            get { return orderpizzza; }
+            set { orderpizzza = value; }
+        }
+
+        private Order_Pizza orderpizza;
+
+        public Order_Pizza Orderpizza
+        {
+            get { return orderpizza; }
+            set { orderpizza = value; }
+        }
+
 
         public restaurant()
         {
             InitializeComponent();
             PopulateOrder();
+        
             DataContext = this;
         }
         //private void PopulateBestelling()
@@ -96,24 +115,32 @@ namespace Pizza_Stonks
             foreach (OrderGegevens formaat in dbOrderList)
             {
                 Orders.Add(formaat);
+                 
             }
+               
         }
 
 
         private void PopulateOrderById()
         {
             //List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
-            List<Pizzas> dbOrderList = DB.GetpizzasByOrderId(SelectedOrder.Id);
+       
+            List<Order_Pizza> dbOrderList = DB.GetpizzasByOrderId(SelectedOrder.Id);
             if (dbOrderList == null)
             {
-                MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
+                MessageBox.Show("Fout bij ophalen pizzas, waarschuw service desk");
                 return;
             }
 
-            foreach (OrderGegevens formaat in dbOrderList)
+            foreach (Order_Pizza formaat in dbOrderList)
             {
-                Orders.Add(formaat);
+                Orderpizzza.Add(formaat);
             }
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             PopulateOrderById();
         }
     }
 }

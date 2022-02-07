@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 namespace Pizza_Stonks.Models
 {
-   public class OrderGegevens 
+   public class OrderGegevens
     { 
         public ulong Id { get; set; }
         public string Name { get; set; }
