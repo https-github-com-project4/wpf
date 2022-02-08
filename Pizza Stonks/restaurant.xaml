@@ -51,9 +51,12 @@
                         <StackPanel Orientation="Horizontal">
 
                             <TextBlock Text="{Binding Name_Pizza}" Width="100"/>
+<<<<<<< HEAD
                             <TextBlock Text="Stuks" />
                             <Separator Width="5" Background="Transparent"></Separator>
                             <TextBlock Text="{Binding Qty}" Width="100"/>
+=======
+>>>>>>> 0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701
                            
 
 
