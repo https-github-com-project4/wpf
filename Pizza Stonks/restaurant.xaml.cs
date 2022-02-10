@@ -41,7 +41,6 @@ namespace Pizza_Stonks
             set
             {
                 pizza = value; OnPropertyChanged();
-
             }
         }
 
@@ -53,7 +52,6 @@ namespace Pizza_Stonks
             set
             {
                 orders = value; OnPropertyChanged();
-
             }
         }
 
@@ -72,11 +70,12 @@ namespace Pizza_Stonks
             get
             {
                 return orderpizzza;
-                OnPropertyChanged();
+                
             }
             set
             {
                 orderpizzza = value;
+                OnPropertyChanged();
             }
         }
 
@@ -85,62 +84,50 @@ namespace Pizza_Stonks
         public Order_Pizza Orderpizza
         {
             get { return orderpizza; }
-            set { orderpizza = value; }
+            set { orderpizza = value;  }
         }
 
 
         public restaurant()
         {
-            InitializeComponent();
-            PopulateOrder();
-
+            InitializeComponent();           
             DataContext = this;
+            PopulateOrder();
         }
-        //private void PopulateBestelling()
-        //{
-        //    List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
-
-        //    if (dbOrderGegevens == null)
-        //    {
-        //        MessageBox.Show("Fout bij ophalen bestelling, waarschuw service desk");
-        //        return;
-        //    }
-
-        //    foreach (OrderGegevens pizza in dbOrderGegevens)
-        //    {
-        //        Pizza.Add(pizza);
-        //    }
-        //}
+  
         private void PopulateOrder()
         {
-            //List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
             List<OrderGegevens> dbOrderList = DB.GetOrderGegevens();
             if (dbOrderList == null)
             {
                 MessageBox.Show("Fout bij ophalen Orders, waarschuw service desk");
                 return;
             }
-
+            else
+            {
+                Orders.Clear();
+            }
+            
             foreach (OrderGegevens formaat in dbOrderList)
             {
                 Orders.Add(formaat);
 
             }
+           
 
         }
 
 
         private void PopulateOrderById()
         {
-            //List<OrderGegevens> dbOrderGegevens = DB.GetOrderGegevens();
-
             List<Order_Pizza> dbOrderList = DB.GetpizzasByOrderId(SelectedOrder.Id);
             if (dbOrderList == null)
             {
                 MessageBox.Show("Fout bij ophalen pizzas, waarschuw service desk");
                 return;
-            }
-            Orderpizzza.Clear();
+            }            
+                Orderpizzza.Clear();          
+            
             foreach (Order_Pizza formaat in dbOrderList)
             {
                 Orderpizzza.Add(formaat);
@@ -150,6 +137,86 @@ namespace Pizza_Stonks
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             PopulateOrderById();
+        }
+
+        //status updaten
+
+        private void btnVoorbereiden_Click(object sender, RoutedEventArgs e)
+        {
+            int status = 3;
+            if (DB.UpdateStatus(SelectedOrder.Id, status))
+            {
+                MessageBox.Show($"Status aangepast");
+            }
+            else
+            {
+                MessageBox.Show($"Aanpassen van status mislukt");
+            }
+            this.Close();
+            restaurant add = new restaurant();
+            add.ShowDialog();
+            
+        }
+
+        private void btnInOven_Click(object sender, RoutedEventArgs e)
+        {
+            int status = 4;
+            if (selectedOrder == null)
+            {
+                MessageBox.Show("Selecteer een order A.U.B!");
+            }
+            else
+            {
+                if (DB.UpdateStatus(SelectedOrder.Id, status))
+                {
+                    MessageBox.Show($"Status aangepast");
+                }
+                else
+                {
+                    MessageBox.Show($"Aanpassen van status mislukt");
+                }
+                this.Close();
+                restaurant add = new restaurant();
+                add.ShowDialog();
+            }
+
+           
+          
+
+        }
+
+        private void btnOnderweg_Click(object sender, RoutedEventArgs e)
+        {
+            int status = 5;
+            if (DB.UpdateStatus(SelectedOrder.Id, status))
+            {
+                MessageBox.Show($"Status aangepast");
+            }
+            else
+            {
+                MessageBox.Show($"Aanpassen van status mislukt");
+            }
+            this.Close();
+            restaurant add = new restaurant();
+            add.ShowDialog();
+
+        }
+
+        private void btnBezorgd_Click(object sender, RoutedEventArgs e)
+        {
+            int status = 6;
+            if (DB.UpdateStatus(SelectedOrder.Id, status))
+            {
+                MessageBox.Show($"Status aangepast");
+            }
+            else
+            {
+                MessageBox.Show($"Aanpassen van status mislukt");
+            }
+
+            this.Close();
+            restaurant add = new restaurant();
+            add.ShowDialog();
         }
     }
 }

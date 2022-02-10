@@ -50,7 +50,7 @@
 
             </ListView>
             <ListView Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"
-                  ItemsSource="{Binding IngredientsInPizzas}"
+                  ItemsSource="{Binding IngredientsInPizzas}" SelectedItem="{Binding selectedIngredientpizza}"
                 
                   >
                 <ListView.ItemTemplate>

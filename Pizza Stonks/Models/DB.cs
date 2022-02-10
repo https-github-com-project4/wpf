@@ -365,6 +365,34 @@ namespace Pizza_Stonks.Models
 
         }
 
+        public bool UpdateStatus(ulong order_id, int status)
+        {
+            bool succes = false;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "UPDATE `order` SET `status_id` = @status WHERE `order`.`id` = @id; ";
+                command.Parameters.AddWithValue("@id", order_id);
+                command.Parameters.AddWithValue("@status", status);              
+
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+
+            }
+            catch (Exception e)
+            {
+
+                //probleem in database
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return succes;
+        }
+
         public bool UpdateIngredients(string tbID, string name, string price)
         {
 
@@ -503,7 +531,7 @@ namespace Pizza_Stonks.Models
             return succes;
         }
 
-        public bool Delete_Ingr_Pizza(ulong idIngr)
+        public bool Delete_Ingr_Pizza(  ulong pizza,ulong idIngr)
         {
 
             bool succes = false;
@@ -511,9 +539,10 @@ namespace Pizza_Stonks.Models
             {
                 conn.Open();
                 MySqlCommand command = conn.CreateCommand();
-                command.CommandText = "DELETE FROM ingredient_pizza WHERE (pizza_id, ingredient_id) = (@idIngr);";
+                command.CommandText = "DELETE FROM ingredient_pizza WHERE (pizza_id, ingredient_id) = (pizzaid ,@idIngr);";
                 //command.Parameters.AddWithValue("@idPizza", idPizza);
                 command.Parameters.AddWithValue("@idIngr", idIngr);
+                command.Parameters.AddWithValue("@pizzaid", pizza);
 
                 int nrOfRowsAffected = command.ExecuteNonQuery();
                 succes = (nrOfRowsAffected != 0);

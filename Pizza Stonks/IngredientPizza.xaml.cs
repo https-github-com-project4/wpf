@@ -78,6 +78,23 @@ namespace Pizza_Stonks
 
                 OnPropertyChanged();
             }
+        }     
+        private IngredientPizza selectedIngredientpizza;
+
+        public Ingredients SelectedIngredientpizza
+        {
+            get { return selectedIngredient; }
+            set
+            {
+                selectedIngredient = value;
+                if (SelectedIngredient != null)
+                {
+                    //selectedIngr.Text = $"Naam: {SelectedIngredient.Name} Prijs: €{SelectedIngredient.Price},00";
+
+                }
+
+                OnPropertyChanged();
+            }
         }
 
 
@@ -138,16 +155,15 @@ namespace Pizza_Stonks
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
-
-            ulong ingr = SelectedIngredient.Id;
-            if (DB.Delete_Ingr_Pizza(SelectedIngredient.Id))
+           
+            if (DB.Delete_Ingr_Pizza(Pizzas.Id, SelectedIngredientpizza.Id))
             {
-                MessageBox.Show($"Land  verwijderd");
+                MessageBox.Show($"Ingredient  verwijderd");
             
             }
             else
             {
-                MessageBox.Show($"Verwijderen van  mislukt");
+                MessageBox.Show($"Verwijderen  mislukt");
             }
         }
     }

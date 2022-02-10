@@ -175,3 +175,61 @@ C:\School\leerjaar 2\project wpfffff\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b
 C:\School\leerjaar 2\project wpfffff\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.CopyComplete
 C:\School\leerjaar 2\project wpfffff\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.exe
 C:\School\leerjaar 2\project wpfffff\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.pdb
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Pizza Stonks.exe.config
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Pizza Stonks.exe
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Pizza Stonks.pdb
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\BouncyCastle.Crypto.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Google.Protobuf.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\K4os.Compression.LZ4.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\K4os.Hash.xxHash.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\MySql.Data.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Buffers.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Memory.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Numerics.Vectors.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Ubiety.Dns.Core.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\ZstdNet.dll
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Google.Protobuf.pdb
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\Google.Protobuf.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\K4os.Compression.LZ4.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\K4os.Hash.xxHash.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\MySql.Data.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Buffers.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Memory.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Numerics.Vectors.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.AssemblyReference.cache
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.exe.config
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\AddIngrededient.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\AddPizza.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Bezorger.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Home.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Ingredient.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\IngredientPizza.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\login.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\pizzas.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\restaurant.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\UpdateIngredient.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\UpdatePizza.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\App.g.cs
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks_MarkupCompile.cache
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks_MarkupCompile.lref
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\AddIngrededient.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\AddPizza.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Bezorger.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Home.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Ingredient.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\IngredientPizza.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\login.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\pizzas.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\restaurant.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\UpdateIngredient.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\UpdatePizza.baml
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.g.resources
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza_Stonks.Properties.Resources.resources
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.GenerateResource.cache
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.csproj.CoreCompileInputs.cache
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.exe
+C:\school\Leerjaar 2\WPF-project4\test 2\wpf-0ce935b64d0ecb86744f9ed9a30cd31b7a6aa701\Pizza Stonks\obj\Debug\Pizza Stonks.pdb
